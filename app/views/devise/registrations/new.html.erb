@@ -1,9 +1,9 @@
 <%= bootstrap_devise_error_messages! %>
 <div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.sign_up', default: 'Sign up') %></h4>
+  <div class="panel-heading" align="center">
+    <h3><%= t('.sign_up', default: 'Sign up') %></h3>
   </div>
-  <div class="panel-body">
+  <div class="panel-body col-8 offset-2">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
       <div class="form-group">
         <%= f.label :email %>
@@ -19,6 +19,6 @@
       </div>
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
     <% end %>
+    <%= render 'devise/shared/links' %>
   </div>
 </div>
-<%= render 'devise/shared/links' %>
