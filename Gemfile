@@ -5,6 +5,7 @@ ruby '2.6.5'
 
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'iex-ruby-client'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
