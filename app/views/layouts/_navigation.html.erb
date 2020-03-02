@@ -1,16 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="navbar-brand">Finance Tracker</div>
+  <%= link_to "Finance Tracker", root_path, class:"navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <% if user_signed_in? %>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", root_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Portfolio", my_portfolio_path, class:"nav-link" %>
+      <li class="nav-item <%= 'active' if request.path == my_portfolio_path %>">
+        <%= link_to "My Portfolio", my_portfolio_path, class:"nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,8 +20,9 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
+      </li>      
     </ul>
-    <%= button_to "Logout", destroy_user_session_url, method: :delete, class:"btn btn-outline-danger" %>
+    <%= button_to "Logout", destroy_user_session_url, method: :delete, class:"btn btn-danger" %>
+    <% end %>
   </div>
 </nav>
