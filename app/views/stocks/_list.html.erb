@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-9">
+  <div class="col-11">
     <table class="table table-bordered table-dark">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th scope="col">#</th>
           <th scope="col">Ticker (Symbol)</th>
           <th scope="col">Name</th>
@@ -11,14 +11,17 @@
         </tr>
       </thead>
       <tbody>
+        <% row_number = 1 %>
         <% @tracked_stocks.each do |stock| %>
-        <tr>
-          <th scope="row">1</th>
+        <tr class="text-center">
+          <th scope="row"><%= row_number %></th>
           <td><%= stock.ticker %></td>
           <td><%= stock.name %></td>
           <td><%= stock.last_price %></td>
-          <td>Action here</td>
+          <td><%= link_to "Remove", user_stock_path(stock), method: :delete, data: {confirm: "Are you sure?"},
+              class:"btn btn-sm btn-warning" %></td>
         </tr>
+        <% row_number+=1 %>
         <% end %>
       </tbody>
     </table>
