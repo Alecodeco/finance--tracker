@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-11">
+    <table class="table table-bordered table-dark">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% row_number = 1 %>
+        <% @friend_list.each do |friend| %>
+        <tr class="text-center">
+          <th scope="row"><%= row_number %></th>
+          <td><%= friend.first_name %></td>
+          <td><%= friend.last_name %></td>
+          <td><%= friend.email %></td>
+          <td><%= link_to "Stop following", users_path(friend), method: :delete, data: {confirm: "Are you sure?"},
+              class:"btn btn-sm btn-warning" %></td>
+        </tr>
+        <% row_number+=1 %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
