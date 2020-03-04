@@ -13,24 +13,24 @@ class UsersController < ApplicationController
       @user = User.find_by(first_name: params[:first_name], last_name: params[:last_name])
       if @user && @user != current_user
         respond_to do |format|
-          format.js { render partial: 'users/result'}
+          format.js { render partial: 'users/friend_result'}
         end
       elsif @user && @user == current_user
         respond_to do |format|
           @user = nil
           flash.now[:alert] = "That's yourself !"
-          format.js { render partial: 'users/result'}
+          format.js { render partial: 'users/friend_result'}
         end
       elsif !@user
         respond_to do |format|
           flash.now[:alert] = "User not found or inexistent"
-          format.js { render partial: 'users/result'}
+          format.js { render partial: 'users/friend_result'}
         end
       end
     else
       respond_to do |format|
         flash.now[:alert] = "Please enter both Name and Last name to search, or search by Email."
-        format.js { render partial: 'users/result'}
+        format.js { render partial: 'users/friend_result'}
       end
     end
   end

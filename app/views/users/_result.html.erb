@@ -2,17 +2,8 @@
   <%= render 'layouts/messages' %>
 </div>
 
-<% if @user %>
-<div class="card card-header results-block">
-  <strong>Name: </strong> <%= @user.first_name %>
-  <strong>Last name: </strong> <%= @user.last_name %>
-  <strong>Mail: </strong> <%= @user.email %>
-  <strong>Action: </strong>
-</div>
-<% end %>
-
 <% if @stock %>
-<div class="card card-header results-block">
+<div class="card card-header results-block mb-3">
   <strong>Symbol: </strong> <%= @stock.ticker %>
   <strong>Name: </strong> <%= @stock.name %>
   <strong>Price: </strong> <%= @stock.last_price %>
