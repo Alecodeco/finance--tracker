@@ -8,31 +8,38 @@ class UsersController < ApplicationController
     @friend_list = current_user.friends
   end
 
+  def search_by_names(first_name, last_name)
+    user = User.where("first_name = ? and last_name = ?","#{first_name}", "#{last_name}")
+    return user unless !user
+      return nil
+  end
+
+  def search_by_email(email)
+    user = User.where("email = ?" , "#{email}")
+    return user unless !user
+      return nil
+  end
+
+  def render_search_results(user)
+    if has_empty_objects?(user)
+      flash.now[:alert] = "User not found or inexistent."
+    end
+    respond_to do |format|
+      format.js { render partial: 'users/friend_result'}
+    end
+  end
+
   def search
     if params[:first_name].present? && params[:last_name].present?
-      @user = User.find_by(first_name: params[:first_name], last_name: params[:last_name])
-      if @user && @user != current_user
-        respond_to do |format|
-          format.js { render partial: 'users/friend_result'}
-        end
-      elsif @user && @user == current_user
-        respond_to do |format|
-          @user = nil
-          flash.now[:alert] = "That's yourself !"
-          format.js { render partial: 'users/friend_result'}
-        end
-      elsif !@user
-        respond_to do |format|
-          flash.now[:alert] = "User not found or inexistent"
-          format.js { render partial: 'users/friend_result'}
-        end
-      end
-    else
-      respond_to do |format|
-        flash.now[:alert] = "Please enter both Name and Last name to search, or search by Email."
-        format.js { render partial: 'users/friend_result'}
-      end
+      @user = search_by_names(params[:first_name], params[:last_name])
+    elsif params[:email].present?
+      @user = search_by_email(params[:email])
     end
+    render_search_results(@user)
+  end
+
+  def not_friends_with?(user, user_id)
+    !user.friendships.where(friend_id: user_id).exists?
   end
 
 

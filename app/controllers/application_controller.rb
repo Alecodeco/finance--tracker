@@ -1,7 +1,17 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  helper_method :logged_in?
+  helper_method :logged_in?, :has_empty_objects, :not_friends_with?
+
+  def has_empty_objects?(array)
+    if !array.nil?
+      array.each do |object|
+        return object.nil?
+      end
+    else
+      return array.blank?
+    end
+  end
 
   protected
 
