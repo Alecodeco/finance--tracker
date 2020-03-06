@@ -6,8 +6,8 @@ ruby '2.6.5'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'iex-ruby-client'
-gem "font-awesome-rails"
 gem 'bootstrap-sass'
+gem "font-awesome-rails"
 gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
