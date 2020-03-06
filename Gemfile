@@ -7,7 +7,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'iex-ruby-client'
 gem "font-awesome-rails"
-
+gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use Puma as the app server
