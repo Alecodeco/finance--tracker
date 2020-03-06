@@ -17,3 +17,9 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap'
+
+//= require jquery3
+//= require popper
+//= require jquery_ujs
+//= require turbolinks
+//= require_tree .
