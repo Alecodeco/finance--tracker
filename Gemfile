@@ -9,6 +9,7 @@ gem 'iex-ruby-client'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem "aws-sdk-s3", require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
