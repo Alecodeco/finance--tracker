@@ -1,0 +1,38 @@
+<h1>View profile</h1>
+
+<div class="card text-center text-white bg-dark">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <span class="nav-link text-white disabled">
+          <h4><%= "#{@user.first_name} #{@user.last_name}" %></h4>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <tr class="text-center">
+      <% if !@friend_list.empty? %>
+        <%= render 'friendships/list' %>
+         <% else %>
+        <p>This user doesnt follow anyone.</p>
+      <% end %>
+    </tr>
+  </div>
+  <div class="card-body">
+    <tr>
+      <% if !@tracked_stocks.empty? %>
+        <%= render 'stocks/list' %>
+      <% else %>
+        <p>This isnt tracking any Stock.</p>
+      <% end %>
+    </tr>
+  </div>
+  <div class="card-footer ">
+    <% if not_friends_with?(current_user, @user.id) %>
+      <%= link_to "Follow", friendships_path(friend: @user), class:"btn fluid btn-primary", method: :post %>
+    <% else %>
+      <span class="btn btn-success active">Already friends</span>
+    <% end %>
+  </div>
+</div>

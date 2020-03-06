@@ -11,9 +11,9 @@
       <td><strong>Last name: </strong> <%= user.last_name %></td>
       <td><strong>Mail: </strong> <%= user.email %></td>
       <td><strong>Actions: </strong>
-        <%= link_to "View profile", "#", class:"btn btn-sm btn-success" %>
+        <%= link_to "View profile", user_path(user.id), class:"btn btn-sm btn-info" %>
         <% if not_friends_with?(current_user, user.id) %>
-          <%= link_to "Follow", friendships_path(friend: user), class:"btn btn-sm btn-success", method: :post %>
+          <%= link_to "Follow", friendships_path(friend: user), class:"btn btn-sm btn-primary", method: :post %>
         <% else %>
           <span class="">Already friends</span>
         <% end %>
