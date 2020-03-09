@@ -1,1 +1,15 @@
-<h1>Welcome to Finance Tracker</h1>
+<h1>Welcome, <%="#{current_user.first_name}"%>!</h1>
+
+<div class="jumbotron">
+  <h2 class="display-4"></h2>
+  <p class="lead">
+    With this application you can track Ticker Stocks from any brand and follow anyone registered with their own tracked stocks.
+    <br><br>It's really simple. Just follow this next instructions to start!
+  </p>
+
+  <hr class="my-4">
+  <p>To search stock companies using ticker, go to :
+  <%= link_to "My Portfolio", my_portfolio_path, class:"btn btn-primary btn-sm" %></p>
+  <p>To look for other users and manage your friendlist :
+  <%= link_to "My Friends", my_friends_path, class:"btn btn-primary btn-sm" %></p>
+</div>

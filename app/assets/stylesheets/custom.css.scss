@@ -2,15 +2,19 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
+  text-align: center;
 }
 h1 {
-  margin-bottom: 20px;
+  margin: 5px auto 15px auto;
 }
 .search-area {
  margin-top: 55px;
 }
 .search-title {
  margin-bottom: 25px;
+}
+.input-group {
+  margin-bottom: 15px;
 }
 .results-block {
   display: inline-block;

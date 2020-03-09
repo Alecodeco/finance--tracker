@@ -36,8 +36,8 @@
   </div>
 </div>
 <br>
-<div class="row col-8 offset-2">
-  <%= t('.unhappy', default: 'Unhappy') %>?
-  <%= link_to t('.cancel_my_account', default: 'Cancel my account'), registration_path(resource_name), data: { confirm: t('.are_you_sure', default: "Are you sure?") }, method: :delete %> ||
-  <%= link_to t('.back', default: 'Back'), :back %>
+<div class="row col-8 offset-3 mt-5">
+  <%= t('.unhappy', default: 'Unhappy') %>
+  <p class="offset-1"><%= link_to t('.cancel_my_account', default: 'Cancel my account'), registration_path(resource_name), data: { confirm: t('.are_you_sure', default: "Are you sure?") }, method: :delete %></p>
+  <p class="offset-1"><%= link_to t('.back', default: 'Back'), :back %></p>
 </div>

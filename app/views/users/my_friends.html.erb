@@ -1,12 +1,12 @@
 <h1>My friends</h1>
 
-<%= render 'users/search_forms' %>
+<%= render 'users/search_friend_form' %>
 
 <div id="results">
 </div>
 
 <% if !@friend_list.empty? %>
   <%= render 'friendships/list' %>
-  <% else %>
+<% else %>
   <p>Your friends will be displayed here when added.</p>
 <% end %>
